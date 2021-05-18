@@ -35,7 +35,7 @@ class BlogsServiceProvider extends ServiceProvider
         /*
          * Views
          */
-        $this->loadViewsFrom(__DIR__ . '/../views', 'marshmallow');
+        // $this->loadViewsFrom(__DIR__ . '/../views', 'marshmallow');
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
