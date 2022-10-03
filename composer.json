@@ -31,7 +31,7 @@
         "marshmallow/redirectable": "^1.0",
         "marshmallow/seoable": "^2.3",
         "marshmallow/nova-flexible": "^1.0",
-        "marshmallow/nova-advanced-image": "^1.0"
+        "marshmallow/nova-advanced-image": "^1.0 || ^1.0"
     },
     "autoload": {
         "psr-4": {
