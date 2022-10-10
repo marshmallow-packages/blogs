@@ -46,7 +46,7 @@ class Blog extends Model
 
     public function scopePublished(Builder $builder)
     {
-        $builder->whereDate('publish_date', '<', now());
+        $builder->whereDate('publish_date', '<=', now());
     }
 
     public function scopeIgnoreTags(Builder $builder, Collection $tags)
