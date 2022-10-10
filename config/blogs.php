@@ -25,4 +25,9 @@ return [
         'blog' => 'blog-detail',
         'blog_tags' => 'blog-tag',
     ],
+
+    'page_route_names' => [
+        'blog' => 'blog-detail-page',
+        'blog_tags' => 'blog-tag-page',
+    ],
 ];
