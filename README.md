@@ -27,6 +27,11 @@ Publish the config, migrate to create the pages table and create your Laravel No
 php artisan blogs:install
 ```
 
+### Make sure the routes work
+
+Create a page in your Nova Pages Resource. This page should have the route name `blog-detail-page`.
+Create a page in your Nova Pages Resource. This page should have the route name `blog-tag-page`.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
