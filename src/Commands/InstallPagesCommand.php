@@ -2,8 +2,8 @@
 
 namespace Marshmallow\Blogs\Commands;
 
-use Exception;
 use Illuminate\Console\Command;
+use Marshmallow\Seoable\Models\Route;
 use Illuminate\Support\Facades\Artisan;
 
 class InstallPagesCommand extends Command
@@ -40,14 +40,42 @@ class InstallPagesCommand extends Command
         );
 
         $this->artisanCall(
-            'marshmallow:resource Blog Blogs',
+            'marshmallow:resource Blog Blogs --quiet',
             'Blog Nova resource has been created.'
         );
 
         $this->artisanCall(
-            'marshmallow:resource BlogTag Blogs',
+            'marshmallow:resource BlogTag Blogs --quiet',
             'Blog Nova resource has been created.'
         );
+
+        $this->createNewRoute(
+            path: 'blog/{blogTag:slug}/{blog:slug}',
+            method: 'get',
+            controller: 'Marshmallow\Blogs\Http\Controllers\BlogController',
+            name: 'blog-detail',
+        );
+
+        $this->createNewRoute(
+            path: 'blog/{blogTag:slug}',
+            method: 'get',
+            controller: 'Marshmallow\Blogs\Http\Controllers\BlogTagController',
+            name: 'blog-tag',
+        );
+    }
+
+    protected function createNewRoute(string $path, string $method, string $controller, string $name)
+    {
+        if (Route::where('path', $path)->orWhere('name', $name)->first()) {
+            return;
+        }
+
+        $route = new Route;
+        $route->path = $path;
+        $route->method = $method;
+        $route->controller = $controller;
+        $route->name = $name;
+        $route->save();
     }
 
     protected function artisanCall($command, $info = null)
