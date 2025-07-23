@@ -90,18 +90,14 @@ class Blog extends Resource
                 ])
                 ->button(__('Add more content'))
                 ->fullWidth()
-                ->collapsed()
-                ->required()
-                ->rules(['required']),
+                ->collapsed(),
 
             $this->getAdvancedImageField(__('Overview image'), 'overview_image'),
             $this->getAdvancedImageField(__('Detail image'), 'detail_image'),
 
-            DateTime::make(__('Publish date'), 'publish_date')
-                ->required()
-                ->rules(['required']),
+            DateTime::make(__('Publish date'), 'publish_date'),
 
-            BelongsTo::make(__('Writer'), 'user', config('blogs.nova.user')),
+            BelongsTo::make(__('Writer'), 'user', config('blogs.nova.user'))->nullable(),
 
             Seoable::make('SEO'),
         ];
@@ -114,51 +110,6 @@ class Blog extends Resource
         return AdvancedImage::make($name, $column)
             ->croppable($sizes[0] / $sizes[1])
             ->resize($sizes[0], $sizes[1])
-            ->hideFromIndex()
-            ->required();
-    }
-
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function cards(NovaRequest $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function filters(NovaRequest $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function lenses(NovaRequest $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function actions(NovaRequest $request)
-    {
-        return [];
+            ->hideFromIndex();
     }
 }
