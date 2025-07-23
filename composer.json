@@ -22,17 +22,17 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": "^8.0",
-        "marshmallow/sluggable": "^v1.4.0",
-        "marshmallow/helpers": "^v2.14.0",
-        "marshmallow/commands": "^v1.2.1",
-        "marshmallow/nova-tinymce": "^v2.1.1",
-        "marshmallow/translatable": "^v2.0.9",
-        "marshmallow/redirectable": "^v2.0.0",
-        "marshmallow/seoable": "^v3.0.2",
-        "marshmallow/nova-flexible": "^v2.2.2",
-        "marshmallow/nova-advanced-image": "^v2.0.0",
-        "marshmallow/breadcrumb": "^v2.0.1"
+        "php": "^8.3",
+        "marshmallow/sluggable": "^v1.9.0",
+        "marshmallow/helpers": "^v2.19.0",
+        "marshmallow/nova-tinymce": "^v2.2.1",
+        "marshmallow/translatable": "^v2.13.2",
+        "marshmallow/redirectable": "^v2.3.0",
+        "marshmallow/seoable": "^v5.0.2",
+        "marshmallow/nova-flexible": "^v5.2.0",
+        "marshmallow/nova-advanced-image": "^v2.2.1",
+        "marshmallow/breadcrumb": "^v2.0.1",
+        "laravel/nova": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -48,5 +48,11 @@
                 "Blog": "Marshmallow\\Blogs\\Facades\\Blog"
             }
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ]
 }
