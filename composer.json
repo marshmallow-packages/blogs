@@ -26,7 +26,7 @@
         "marshmallow/sluggable": "^v1.9.0",
         "marshmallow/helpers": "^v2.19.0",
         "marshmallow/nova-tinymce": "^v2.2.1",
-        "marshmallow/translatable": "^v2.13.2",
+        "marshmallow/translatable": "^v5.0.0",
         "marshmallow/redirectable": "^v2.3.0",
         "marshmallow/seoable": "^v5.0.2",
         "marshmallow/nova-flexible": "^v5.2.0",
